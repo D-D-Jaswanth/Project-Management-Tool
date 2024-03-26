@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Open+Sans:wght@300;400;500;600&family=Poppins:wght@200;300;400;500;600;800;900&family=Roboto:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Noto Sans', 'Open Sans', 'Roboto', sans-serif;
+}
+
+
+body{
+  background: #FEFCFC;
+}
+
+section{
+  height: 80vh;
+  padding: 2%;
+}
+
+/*************** Header page ***********************/
+
+.header-container img{
+  height: 88.7vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*************** Section About Us ****************/
+
+.about-container{
+  height: 100vh;
+}
+
+.about-container img{
+  width: 100%;
+}
+
+/***************** Section Category Container ***************/
+
+.section-category-container{
+  height: 100vh;
+}
+
+.section-category-container img{
+  height: 200px;
+}
+
+/***************** Section Contact Container *************/
+
+.contact-container{
+  height: 100vh;
+}
+
+.contact-container img{
+  width: 100%;
+}
+
+.contact-container input{
+  height: 45px;
+}
+
+/****************** Footer ********************/
+
+.footer-container{
+  height: 40vh;
+  background: #343434;
+  color: #FEFCFC;
+}
+.footer-container .link{
+  text-decoration: none;
+  color: #FEFCFC;
+}
+
+.footer-container .link:hover{
+  text-decoration: underline;
+}
+
+
+/***************** Not Found Page ************************/
+
+.notfound-container{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.notfound-container img{
+  height: 500px;
+}
+
+/****************** Login Page *******************/
+
+.login-container{
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 550px;
+}
+
+.login-container form input{
+  height: 50px;
+}
+
+/****************** Register Page *******************/
+
+.register-container{
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 550px;
+}
+
+.register-container form input{
+  height: 50px;
+}
+
+/*********************** Project Manager Home Page ***************/
+
+.project-manager-homepage{
+  padding: 1% 10%;
+}
+
+
+/****************** Project Manager Profile Page ****************/
+
+.profile-container{
+  padding: 1% 10%;
+}
+
+.profile-container input{
+  height: 50px;
+}
+
+/******************** Project Manager Add Employees **************/
+
+.category-container{
+  padding: 1% 10%;
+}
+
+.category-container input{
+  height: 45px;
+}
+
+/***************** Project Manager Add Designation **************/
+
+.designation-container{
+  padding: 1% 10%;
+}
+
+.designation-container input{
+  height: 45px;
+}
+
+/**************** Project Manager Add Employees ******************/
+
+.employee-container{
+  padding: 1% 10%;
+}
+
+.employee-container input,
+.employee-container select{
+  height: 50px;
+}
+
+.employee-container .container .scroll{
+  overflow-y: scroll;
+}
+
+.employee-container .container .scroll table tr th{
+  width: 200px;
+}
+
+/************** Project Manager List Employees ****************/
+
+.employee-list-container{
+  padding: 1%;
+}
+
+.employee-list-container .container{
+  padding: 0;
+}
+
+.employee-list-container .container .scroll{
+  overflow-y: scroll;
+}
+
+/*********************** Project Manager Add Tasks *******************/
+
+.tasks-container{
+  padding: 1% 10%;
+}
+
+.tasks-container input,
+.tasks-container select{
+  height: 45px;
+}
+
+/************** Project Manager Add Resources ***************/
+
+.resource-container{
+  padding: 1% 10%;
+}
+
+.resource-container input,
+.resource-container select{
+  height: 45px;
+}
+
+/**************** Project Manager Add Projects ***************/
+
+.project-container{
+  padding: 1% 10%;
+}
+
+.project-container input,
+.project-container select{
+  height: 45px;
+}
+
+/*************** Project Manager Leave Trans ***********/
+
+.leave-container{
+  padding: 1% 10%;
+}
+
+/******************** Employee Profile Page *****************/
+
+.empprofile-container{
+  padding: 1% 10%;
+}
+
+/******************* Employee Home Page ******************/
+
+.emp-homepage{
+  padding: 1% 10%;
+}
+
+/************** Employee Projects Page ******************/
+
+.emptasks-container{
+  padding: 1% 10%;
+}
+
+.emptasks-container select{
+  height: 45px;
+}
+
+/*********************** Employee Leave *****************/
+
+.employee-leave{
+  padding: 1% 10%;
+}
+
+.employee-leave input{
+  height: 45px;
+}
