@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../../screens/Navbar'
 import axios from 'axios'
+import { BACKEND_URL } from '../../helper'
 
 function AddCategory() {
 
@@ -15,7 +16,7 @@ function AddCategory() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.post('http://localhost:5000/addcategory', category)
+        await axios.post(`${BACKEND_URL}/addcategory`, category)
             .then(res => {
                 alert(res.data)
                 window.location.reload()

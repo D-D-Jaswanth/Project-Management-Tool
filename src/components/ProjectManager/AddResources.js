@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../../screens/Navbar'
 import axios from 'axios'
+import { BACKEND_URL } from '../../helper'
 
 function AddResources() {
 
@@ -19,7 +20,7 @@ function AddResources() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.post('http://localhost:5000/addresources', resource)
+        await axios.post(`${BACKEND_URL}/addresources`, resource)
         .then(res => {
             alert(res.data)
             window.location.reload()

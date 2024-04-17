@@ -3,13 +3,14 @@ import Navbar from '../../screens/Navbar'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
+import { BACKEND_URL } from '../../helper'
 
 function LeaveTrans() {
 
     const [empleave, setEmpLeave] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/leavetrans')
+        axios.get(`${BACKEND_URL}/leavetrans`)
             .then(empleave => {
                 setEmpLeave(empleave.data)
             })

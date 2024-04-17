@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import EmployeeNavbar from '../../screens/EmployeeNavbar'
 import { store } from '../../App'
 import axios from 'axios'
+import { BACKEND_URL } from '../../helper'
 
 function EmployeeLeave() {
 
@@ -16,7 +17,7 @@ function EmployeeLeave() {
     const [employee, setEmployee] = useState(null)
 
     useEffect(() => {
-        axios.get('http://localhost:5000/employeeprofile', {
+        axios.get(`${BACKEND_URL}/employeeprofile`, {
             headers: {
                 'x-token': token
             }
@@ -35,7 +36,7 @@ function EmployeeLeave() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.post('http://localhost:5000/employeeleave', { empleave, employee})
+        await axios.post(`${BACKEND_URL}/employeeleave`, { empleave, employee})
         .then(res => {
             alert(res.data)
             window.location.reload()

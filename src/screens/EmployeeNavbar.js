@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { store } from '../App'
 import axios from 'axios'
+import { BACKEND_URL } from '../helper'
 
 function EmployeeNavbar() {
 
@@ -11,7 +12,7 @@ function EmployeeNavbar() {
     const [employee, setEmployee] = useState(null)
 
     useEffect(() => {
-        axios.get('http://localhost:5000/employeeprofile', {
+        axios.get(`${BACKEND_URL}/employeeprofile`, {
             headers: {
                 'x-token': token
             }

@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../../screens/Navbar'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { BACKEND_URL } from '../../helper'
 
 function Category() {
 
     const [category, setCategory] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/category')
+        axios.get(`${BACKEND_URL}/category`)
             .then(category => {
                 setCategory(category.data)
             })
@@ -18,7 +19,7 @@ function Category() {
     }, [])
 
     const handleDelete = async (id) => {
-        await axios.delete('http://localhost:5000/deletecategory/' + id)
+        await axios.delete(`${BACKEND_URL}/deletecategory/` + id)
             .then(() => {
                 alert('Category Deleted')
                 window.location.reload()

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../../screens/Navbar'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
+import { BACKEND_URL } from '../../helper'
 
 function CategoryUpdate() {
     const { id } = useParams()
@@ -15,7 +16,7 @@ function CategoryUpdate() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get('http://localhost:5000/updatecategory/' + id)
+        axios.get(`${BACKEND_URL}/updatecategory/` + id)
             .then(category => {
                 setCategory(category.data)
             })
@@ -30,7 +31,7 @@ function CategoryUpdate() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.put('http://localhost:5000/categoryupdate/' + id, category)
+        await axios.put(`${BACKEND_URL}/categoryupdate/` + id, category)
             .then(category => {
                 setCategory(category.data)
                 alert('Category Updated')

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import EmployeeNavbar from '../../screens/EmployeeNavbar'
 import { store } from '../../App'
 import axios from 'axios'
+import { BACKEND_URL } from '../../helper'
 
 function EmployeeHomePage() {
 
@@ -12,7 +13,7 @@ function EmployeeHomePage() {
   const [employee, setEmployee] = useState(null)
 
   useEffect(() => {
-    axios.get('http://localhost:5000/employeeprofile', {
+    axios.get(`${BACKEND_URL}/employeeprofile`, {
       headers: {
         'x-token': token
       }
@@ -26,7 +27,7 @@ function EmployeeHomePage() {
   }, [])
 
   useEffect(() => {
-    axios.get('http://localhost:5000/tasks')
+    axios.get(`${BACKEND_URL}/tasks`)
       .then(tasks => {
         setTasks(tasks.data)
       })

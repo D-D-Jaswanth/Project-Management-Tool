@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../../screens/Navbar'
 import axios from 'axios'
+import { BACKEND_URL } from '../../helper'
 
 function AddDesignation() {
 
@@ -18,7 +19,7 @@ function AddDesignation() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.post('http://localhost:5000/adddesignation', designation)
+        await axios.post(`${BACKEND_URL}/adddesignation`, designation)
         .then(res => {
             alert(res.data)
             window.location.reload()
@@ -29,7 +30,7 @@ function AddDesignation() {
     }
 
     useEffect(() => {
-        axios.get('http://localhost:5000/category')
+        axios.get(`${BACKEND_URL}/category`)
             .then(category => {
                 setCategory(category.data)
             })

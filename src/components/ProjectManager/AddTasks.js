@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../../screens/Navbar'
 import axios from 'axios'
+import { BACKEND_URL } from '../../helper'
 
 function AddTasks() {
 
@@ -24,7 +25,7 @@ function AddTasks() {
     const [project, setProject] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/project')
+        axios.get(`${BACKEND_URL}/project`)
             .then(project => {
                 setProject(project.data)
             })
@@ -34,7 +35,7 @@ function AddTasks() {
     }, [])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/resources')
+        axios.get(`${BACKEND_URL}/resources`)
             .then(resource => {
                 setResource(resource.data)
             })
@@ -44,7 +45,7 @@ function AddTasks() {
     }, [])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/employee')
+        axios.get(`${BACKEND_URL}/employee`)
             .then(employee => {
                 setEmployee(employee.data)
             })
@@ -59,7 +60,7 @@ function AddTasks() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.post('http://localhost:5000/addtasks', tasks)
+        await axios.post(`${BACKEND_URL}/addtasks`, tasks)
         .then(res => {
             alert(res.data)
             window.location.reload()

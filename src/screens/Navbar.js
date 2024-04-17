@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { store } from '../App'
 import axios from 'axios'
+import { BACKEND_URL } from '../helper'
 
 function Navbar() {
 
@@ -9,7 +10,7 @@ function Navbar() {
     const [data, setData] = useState(null)
 
     useEffect(() => {
-        axios.get('http://localhost:5000/profile', {
+        axios.get(`${BACKEND_URL}/profile`, {
             headers: {
                 'x-token': token
             }

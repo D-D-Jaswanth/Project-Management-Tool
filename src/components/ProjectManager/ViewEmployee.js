@@ -4,6 +4,7 @@ import Navbar from '../../screens/Navbar'
 import DefaultImg from '../../images/defaultimage.jpg'
 import axios from 'axios'
 import moment from 'moment'
+import { BACKEND_URL } from '../../helper'
 
 function ViewEmployee() {
     const { id } = useParams()
@@ -11,7 +12,7 @@ function ViewEmployee() {
     const [employee, setEmployee] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/viewemployee/' + id)
+        axios.get(`${BACKEND_URL}/viewemployee/` + id)
             .then(employee => {
                 setEmployee(employee.data)
             })

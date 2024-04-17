@@ -3,13 +3,14 @@ import Navbar from '../../screens/Navbar'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
+import { BACKEND_URL } from '../../helper'
 
 function Employee() {
 
     const [employee, setEmployee] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/employee')
+        axios.get(`${BACKEND_URL}/employee`)
             .then(employee => {
                 setEmployee(employee.data)
             })
@@ -19,7 +20,7 @@ function Employee() {
     }, [])
 
     const handleDelete = (id) => {
-        axios.delete('http://localhost:5000/deleteemployee/'+id)
+        axios.delete(`${BACKEND_URL}/deleteemployee/`+id)
         .then(() => {
             alert('Employee Deleted')
             window.location.reload()

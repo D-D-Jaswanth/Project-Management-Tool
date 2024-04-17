@@ -3,6 +3,7 @@ import EmployeeNavbar from '../../screens/EmployeeNavbar'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import moment from 'moment'
+import { BACKEND_URL } from '../../helper'
 
 function EmployeeTasksUpdate() {
     const { id } = useParams()
@@ -17,7 +18,7 @@ function EmployeeTasksUpdate() {
     const [changestatus, setChangeStatus] = useState(['Not Started', "In Progress", "Completed", "On Hold"])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/emptasksupdate/' + id)
+        axios.get(`${BACKEND_URL}/emptasksupdate/` + id)
             .then(tasks => {
                 setTasks(tasks.data)
             })
@@ -32,7 +33,7 @@ function EmployeeTasksUpdate() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.put('http://localhost:5000/updateemptasks/'+id, tasks)
+        await axios.put(`${BACKEND_URL}/updateemptasks/`+id, tasks)
         .then(tasks => {
             setTasks(tasks.data)
             alert('Task Updated')

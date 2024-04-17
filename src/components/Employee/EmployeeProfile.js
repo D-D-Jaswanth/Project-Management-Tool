@@ -4,6 +4,7 @@ import { store } from '../../App'
 import axios from 'axios'
 import DefaultImg from '../../images/defaultimage.jpg'
 import moment from 'moment'
+import { BACKEND_URL } from '../../helper'
 
 function EmployeeProfile() {
     const [token, setToken] = useContext(store)
@@ -11,7 +12,7 @@ function EmployeeProfile() {
     const [employee, setEmployee] = useState(null)
 
     useEffect(() => {
-        axios.get('http://localhost:5000/employeeprofile', {
+        axios.get(`${BACKEND_URL}/employeeprofile`, {
             headers: {
                 'x-token': token
             }

@@ -1,0 +1,1 @@
+export const BACKEND_URL='https://appserver-2bn9.onrender.com'

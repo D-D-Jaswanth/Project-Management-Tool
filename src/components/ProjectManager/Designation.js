@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../../screens/Navbar'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { BACKEND_URL } from '../../helper'
 
 function Designation() {
 
     const [designation, setDesignation] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/designation')
+        axios.get(`${BACKEND_URL}/designation`)
             .then(designation => {
                 setDesignation(designation.data)
             })
@@ -18,7 +19,7 @@ function Designation() {
     }, [])
 
     const handleDelete = async (id) => {
-        await axios.delete('http://localhost:5000/deletedesignation/' + id)
+        await axios.delete(`${BACKEND_URL}/deletedesignation/` + id)
             .then(() => {
                 alert('Designation Deleted')
                 window.location.reload()

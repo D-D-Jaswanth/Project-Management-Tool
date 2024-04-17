@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { BACKEND_URL } from '../../helper'
 
 function Register() {
 
@@ -21,7 +22,7 @@ function Register() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.post('http://localhost:5000/register', data)
+        await axios.post(`${BACKEND_URL}/register`, data)
             .then(res => {
                 alert(res.data.message)
                 navigate('/login')

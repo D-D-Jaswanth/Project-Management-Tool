@@ -5,14 +5,16 @@ const routes = require('./Views/Routes')
 const employeeroutes = require('./Views/EmployeeRoutes')
 
 const app = express()
+const port = 5000
 
 app.use(cors({ origin: "*" }))
 app.use(express.json())
+
 app.use(routes)
 app.use(employeeroutes)
 
+
 // Server Connection
-const port = 5000
 
 app.listen(port, () => {
     console.log(`Server is listen on ${port}`)
@@ -20,10 +22,10 @@ app.listen(port, () => {
 
 // Database Connection
 
-mongoose.connect('mongodb://127.0.0.1:27017/project-management-tool')
+mongoose.connect("mongodb+srv://loyolite182725:Jasu%40123@cluster0.s48x17q.mongodb.net/pmt")
 .then(() => {
     console.log('Database is Connected Successfully')
 })
-.catch(() => {
-    console.log('Error while connecting to the Database')
+.catch((e) => {
+    console.log('Error while connecting to the Database',e)
 })

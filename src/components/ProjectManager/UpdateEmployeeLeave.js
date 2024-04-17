@@ -3,6 +3,7 @@ import Navbar from '../../screens/Navbar'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 import moment from 'moment'
+import { BACKEND_URL } from '../../helper'
 
 function UpdateEmployeeLeave() {
 
@@ -15,7 +16,7 @@ function UpdateEmployeeLeave() {
     const [changeStatus, setChangeStatus] = useState(['Pending', 'Accepted', 'Rejected'])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/updateempleave/' + id)
+        axios.get(`${BACKEND_URL}/updateempleave/` + id)
             .then(empleave => {
                 setEmpLeave(empleave.data)
             })
@@ -32,7 +33,7 @@ function UpdateEmployeeLeave() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.put('http://localhost:5000/empleaveupdate/'+id, empleave)
+        await axios.put(`${BACKEND_URL}/empleaveupdate/`+id, empleave)
         .then(empleave => {
             setEmpLeave(empleave.data)
             alert('Leave Updated')

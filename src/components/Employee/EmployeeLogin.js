@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useContext, useState } from 'react'
 import { store } from '../../App'
 import { useNavigate } from 'react-router-dom'
+import { BACKEND_URL } from '../../helper'
 
 function EmployeeLogin() {
 
@@ -20,7 +21,7 @@ function EmployeeLogin() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.post('http://localhost:5000/employeelogin', employee)
+        await axios.post(`${BACKEND_URL}/employeelogin`, employee)
             .then(res => {
                 alert('Login Successfully')
                 setToken(res.data.token)

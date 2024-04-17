@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../../screens/Navbar'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { BACKEND_URL } from '../../helper'
 
 function Resource() {
 
     const [resource, setResource] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/resources')
+        axios.get(`${BACKEND_URL}/resources`)
             .then(resource => {
                 setResource(resource.data)
             })
@@ -18,7 +19,7 @@ function Resource() {
     }, [])
 
     const handleDelete = (id) => {
-        axios.delete('http://localhost:5000/deleteresources/' + id)
+        axios.delete(`${BACKEND_URL}/deleteresources/` + id)
             .then(() => {
                 alert('Resource Deleted')
                 window.location.reload()

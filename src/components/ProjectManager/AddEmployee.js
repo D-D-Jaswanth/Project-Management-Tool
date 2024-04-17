@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../../screens/Navbar'
 import axios from 'axios'
+import { BACKEND_URL } from '../../helper'
 
 function AddEmployee() {
 
@@ -35,7 +36,7 @@ function AddEmployee() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.post('http://localhost:5000/addemployee', employee)
+        await axios.post(`${BACKEND_URL}/addemployee`, employee)
         .then(res => {
             alert(res.data)
             window.location.reload()

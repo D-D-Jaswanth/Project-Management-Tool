@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../../screens/Navbar'
 import axios from 'axios'
+import { BACKEND_URL } from '../../helper'
 
 function AddProjects() {
 
@@ -18,7 +19,7 @@ function AddProjects() {
     const [employee, setEmployee] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/employee')
+        axios.get(`${BACKEND_URL}/employee`)
             .then(employee => {
                 setEmployee(employee.data)
             })
@@ -28,7 +29,7 @@ function AddProjects() {
     }, [])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/category')
+        axios.get(`${BACKEND_URL}/category`)
             .then(category => {
                 setCategory(category.data)
             })
@@ -43,7 +44,7 @@ function AddProjects() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.post('http://localhost:5000/addproject', project)
+        await axios.post(`${BACKEND_URL}/addproject`, project)
             .then(res => {
                 alert(res.data)
                 window.location.reload()

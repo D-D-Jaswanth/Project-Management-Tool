@@ -3,13 +3,14 @@ import Navbar from '../../screens/Navbar'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
+import { BACKEND_URL } from '../../helper'
 
 function Projects() {
 
     const [project, setProject] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/project')
+        axios.get(`${BACKEND_URL}/project`)
             .then(project => {
                 setProject(project.data)
             })
@@ -19,7 +20,7 @@ function Projects() {
     }, [])
 
     const handleDelete = (id) => {
-        axios.delete('http://localhost:5000/deleteproject/' + id)
+        axios.delete(`${BACKEND_URL}/deleteproject/` + id)
             .then(() => {
                 alert('Project Deleted')
                 window.location.reload()

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { store } from '../../App'
+import { BACKEND_URL } from '../../helper'
 
 function Homepage() {
 
@@ -9,7 +10,7 @@ function Homepage() {
   const [tasks, setTasks] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:5000/employee')
+    axios.get(`${BACKEND_URL}/employee`)
       .then(employee => {
         setEmployee(employee.data)
       })
@@ -20,7 +21,7 @@ function Homepage() {
 
 
     useEffect(() => {
-        axios.get('http://localhost:5000/project')
+        axios.get(`${BACKEND_URL}/project`)
             .then(project => {
                 setProject(project.data)
             })
@@ -31,7 +32,7 @@ function Homepage() {
 
 
     useEffect(() => {
-        axios.get('http://localhost:5000/tasks')
+        axios.get(`${BACKEND_URL}/tasks`)
             .then(tasks => {
                 setTasks(tasks.data)
             })

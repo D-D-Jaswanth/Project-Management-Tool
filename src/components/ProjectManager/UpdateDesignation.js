@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../../screens/Navbar'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
+import { BACKEND_URL } from '../../helper'
 
 function UpdateDesignation() {
 
@@ -20,7 +21,7 @@ function UpdateDesignation() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await axios.put('http://localhost:5000/designationupdate/' +id, designation)
+    await axios.put(`${BACKEND_URL}/designationupdate/` +id, designation)
     .then(designation => {
       setDesignation(designation.data)
       alert('Designation Updated Successfully')
@@ -32,7 +33,7 @@ function UpdateDesignation() {
   }
 
   useEffect(() => {
-    axios.get('http://localhost:5000/updatedesignation/' + id)
+    axios.get(`${BACKEND_URL}/updatedesignation/` + id)
       .then(designation => {
         setDesignation(designation.data)
       })

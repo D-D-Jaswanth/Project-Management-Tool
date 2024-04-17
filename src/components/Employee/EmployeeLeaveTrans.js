@@ -4,6 +4,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { store } from '../../App'
 import moment from 'moment'
+import { BACKEND_URL } from '../../helper'
 
 function EmployeeLeaveTrans() {
 
@@ -14,7 +15,7 @@ function EmployeeLeaveTrans() {
     const [employee, setEmployee] = useState(null)
 
     useEffect(() => {
-        axios.get('http://localhost:5000/employeeprofile', {
+        axios.get(`${BACKEND_URL}/employeeprofile`, {
             headers: {
                 'x-token': token
             }
@@ -28,7 +29,7 @@ function EmployeeLeaveTrans() {
     }, [])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/employeetrans')
+        axios.get(`${BACKEND_URL}/employeetrans`)
             .then(empleave => {
                 setEmpLeave(empleave.data)
             })
@@ -38,7 +39,7 @@ function EmployeeLeaveTrans() {
     }, [])
 
     const handleDelete = async (id) => {
-        await axios.delete('http://localhost:5000/deleteempleave/' + id)
+        await axios.delete(`${BACKEND_URL}/deleteempleave/` + id)
             .then(() => {
                 alert('Leave Deleted')
                 window.location.reload()

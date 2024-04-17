@@ -3,13 +3,14 @@ import Navbar from '../../screens/Navbar'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
+import { BACKEND_URL } from '../../helper'
 
 function Tasks() {
 
     const [tasks, setTasks] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/tasks')
+        axios.get(`${BACKEND_URL}/tasks`)
             .then(tasks => {
                 setTasks(tasks.data)
             })
@@ -19,7 +20,7 @@ function Tasks() {
     }, [])
 
     const handleDelete = (id) => {
-        axios.delete('http://localhost:5000/deletetasks/'+id)
+        axios.delete(`${BACKEND_URL}/deletetasks/`+id)
         .then(() => {
             alert('Task Deleted')
             window.location.reload()

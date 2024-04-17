@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../../screens/Navbar'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
+import { BACKEND_URL } from '../../helper'
 
 function UpdateEmployee() {
 
@@ -35,7 +36,7 @@ function UpdateEmployee() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get('http://localhost:5000/updateemployee/' + id)
+        axios.get(`${BACKEND_URL}/updateemployee/` + id)
             .then(employee => {
                 setEmployee(employee.data)
             })
@@ -50,7 +51,7 @@ function UpdateEmployee() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.put('http://localhost:5000/employeeupdate/' + id, employee)
+        await axios.put(`${BACKEND_URL}/employeeupdate/` + id, employee)
             .then((employee) => {
                 setEmployee(employee.data)
                 alert('Employee Updated')

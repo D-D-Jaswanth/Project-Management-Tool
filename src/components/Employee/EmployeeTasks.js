@@ -4,6 +4,7 @@ import axios from 'axios'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 import { store } from '../../App'
+import { BACKEND_URL } from '../../helper'
 
 function EmployeeTasks() {
 
@@ -14,7 +15,7 @@ function EmployeeTasks() {
     const [employee, setEmployee] = useState(null)
 
     useEffect(() => {
-        axios.get('http://localhost:5000/employeeprofile', {
+        axios.get(`${BACKEND_URL}/employeeprofile`, {
             headers: {
                 'x-token': token
             }
@@ -28,7 +29,7 @@ function EmployeeTasks() {
     }, [])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/tasks')
+        axios.get(`${BACKEND_URL}/tasks`)
             .then(tasks => {
                 setTasks(tasks.data)
             })
